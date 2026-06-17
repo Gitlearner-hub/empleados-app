@@ -1,0 +1,6 @@
+services:
+  web:
+    build: .
+    container_name: empleados-app
+    ports:
+      - "80:80"
