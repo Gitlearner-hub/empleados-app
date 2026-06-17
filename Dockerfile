@@ -4,4 +4,10 @@ RUN a2enmod rewrite
 
 COPY . /var/www/html/
 
+RUN sed -i 's|DocumentRoot /var/www/html|DocumentRoot /var/www/html/public|g' \
+/etc/apache2/sites-available/000-default.conf
+
+RUN sed -i 's|<Directory /var/www/>|<Directory /var/www/html/public>|g' \
+/etc/apache2/apache2.conf
+
 EXPOSE 80
